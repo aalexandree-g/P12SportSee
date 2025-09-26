@@ -1,0 +1,20 @@
+// variables
+@import './abstracts/colors';
+
+// layout
+@import '../layout/appLayout';
+@import '../components/Header/header';
+@import '../components/Sidebar/sidebar';
+
+// pages
+@import '../pages/Dashboard/dashboard';
+
+body {
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+
+  margin: 0 auto;
+  min-width: 1024px;
+  max-height: 780px;
+}

@@ -1,0 +1,40 @@
+.app__dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 68px 107px;
+  background-color: aquamarine;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-rows: 167fr 612fr;
+  height: 100%;
+  width: 100%;
+  max-height: 779px;
+  max-width: 1126px;
+  background-color: $background-white;
+
+  &__welcome {
+    h1 {
+      font-size: 48px;
+      font-weight: 500;
+      margin: 0;
+
+      span {
+        color: $primary-light;
+      }
+    }
+
+    p {
+      font-weight: 400;
+    }
+  }
+
+  &__graphs {
+    max-height: 612px;
+    width: 100%;
+    min-height: 0;
+    background-color: $neutral-600;
+  }
+}

@@ -1,0 +1,47 @@
+.sidebar {
+  background: #020203;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 26px;
+  width: 117px;
+  min-height: 689px;
+  position: relative;
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 6px;
+    border: none;
+    background: #fff;
+    font-size: 28px;
+    cursor: pointer;
+
+    img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+    }
+  }
+
+  &__copyright {
+    position: absolute;
+    bottom: 20px;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 12px;
+    font-weight: 400;
+    color: $background-white;
+  }
+}

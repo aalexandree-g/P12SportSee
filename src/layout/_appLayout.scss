@@ -1,0 +1,10 @@
+.app {
+  min-height: 100vh;
+  background: $background-white;
+
+  &__body {
+    display: grid;
+    grid-template-columns: 117px 1fr;
+    min-height: calc(100vh - 91px);
+  }
+}
