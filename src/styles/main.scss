@@ -1,6 +1,9 @@
 // variables
 @import './abstracts/colors';
 
+// components
+@import '../components/NutritionCard/nutritionCard';
+
 // layout
 @import '../layout/appLayout';
 @import '../components/Header/header';

@@ -1,0 +1,60 @@
+.nutrition-card {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  padding-left: 20px;
+  height: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: $background-grey;
+
+  &__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 60px;
+    border-radius: 6px;
+
+    img {
+      height: 20px;
+    }
+
+    &--calories {
+      background-color: #ff01010f;
+    }
+
+    &--protéines {
+      background-color: #4ab8ff1a;
+    }
+
+    &--glucides {
+      background-color: #f9ce231a;
+    }
+
+    &--lipides {
+      background-color: #fd51811a;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  &__value {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0;
+    color: $neutral-800;
+  }
+
+  &__label {
+    font-size: 14px;
+    font-size: 400;
+    margin: 0;
+    color: $neutral-600;
+  }
+}
