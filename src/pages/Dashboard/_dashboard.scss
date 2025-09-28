@@ -48,7 +48,9 @@
   }
 
   &__chart {
-    background-color: $neutral-900;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: $background-grey;
   }
 
   &__charts {
@@ -58,7 +60,29 @@
   }
 
   &__card {
-    background-color: $neutral-600;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: $background-grey;
+
+    &--line,
+    &--radar,
+    &--radialBar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &--line {
+      background-color: $primary-light;
+    }
+
+    &--radar {
+      background-color: $neutral-800;
+    }
+
+    &--radialBar {
+      background-color: $background-grey;
+    }
   }
 
   &__nutrition {
@@ -66,4 +90,8 @@
     grid-template-rows: 1fr 1fr 1fr 1fr;
     gap: 29px;
   }
+}
+
+.test {
+  background-color: $background-black;
 }
