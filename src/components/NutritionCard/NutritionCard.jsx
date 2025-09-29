@@ -10,6 +10,7 @@ export default function NutritionCard({ icon, value, unit, label }) {
       </div>
       <div className="nutrition-card__info">
         <p className="nutrition-card__value">
+          {/* format number with thousands separator */}
           {value.toLocaleString('en-US')}
           {unit}
         </p>

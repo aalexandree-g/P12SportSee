@@ -1,22 +1,28 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { getUser } from '../../api/userServices'
+import { getUser, getUserPerformance } from '../../api/userServices'
 import NutritionCard from '../../components/NutritionCard/NutritionCard'
 import caloriesIcon from '../../assets/calories-icon.png'
 import proteinIcon from '../../assets/protein-icon.png'
 import carbsIcon from '../../assets/carbs-icon.png'
 import fatIcon from '../../assets/fat-icon.png'
 import ScoreChart from '../../components/ScoreChart/ScoreChart'
+import PerformanceRadar from '../../components/PerformanceChart/PerformanceChart'
 
 export default function Dashboard() {
   const { id } = useParams()
   const [user, setUser] = useState(null)
+  const [performance, setPerformance] = useState(null)
 
   useEffect(() => {
     getUser(id).then(setUser).catch(console.error)
   }, [id])
 
-  if (!user) return <p>Chargement...</p>
+  useEffect(() => {
+    getUserPerformance(id).then(setPerformance).catch(console.error)
+  }, [id])
+
+  if (!user || !performance) return <p>Chargement...</p>
 
   return (
     <div className="dashboard">
@@ -33,7 +39,9 @@ export default function Dashboard() {
           <div className="dashboard__chart"></div>
           <div className="dashboard__charts">
             <div className="dashboard__card dashboard__card--line"></div>
-            <div className="dashboard__card dashboard__card--radar"></div>
+            <div className="dashboard__card dashboard__card--radar">
+              <PerformanceRadar data={performance} />
+            </div>
             <div
               className="dashboard__card
             dashboard__card--radialBar"
@@ -80,31 +88,3 @@ export default function Dashboard() {
     </div>
   )
 }
-
-/* const data = [{ name: 'score', value: 70 }]
-
-  return (
-    <div className="test">
-      <RadialBarChart
-        width={300}
-        height={300}
-        innerRadius="77%"
-        outerRadius="87%"
-        data={data}
-        startAngle={90}
-        endAngle={90 + (360 * data[0].value) / 100}
-      >
-        <circle
-          cx="50%"
-          cy="50%"
-          r="114" // doit correspondre à innerRadius
-          fill="#ffffff"
-        />
-        <RadialBar
-          dataKey="value"
-          cornerRadius={87}
-          fill="#FF0000" // couleur de la barre
-        />
-      </RadialBarChart>
-    </div>
-  )*/

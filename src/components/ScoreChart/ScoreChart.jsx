@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { RadialBarChart, RadialBar } from 'recharts'
 
 export default function ScoreChart({ value }) {
@@ -32,4 +33,8 @@ export default function ScoreChart({ value }) {
       </div>
     </div>
   )
+}
+
+ScoreChart.propTypes = {
+  value: PropTypes.number.isRequired,
 }
