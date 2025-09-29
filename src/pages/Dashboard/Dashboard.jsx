@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { getUser } from '../../api/client'
+import { getUser } from '../../api/userServices'
 import NutritionCard from '../../components/NutritionCard/NutritionCard'
 import caloriesIcon from '../../assets/calories-icon.png'
 import proteinIcon from '../../assets/protein-icon.png'
@@ -22,10 +22,7 @@ export default function Dashboard() {
     <div className="dashboard">
       <div className="dashboard__header">
         <h1 className="dashboard__title">
-          Bonjour{' '}
-          <span className="dashboard__username">
-            {user.userInfos.firstName}
-          </span>
+          Bonjour <span className="dashboard__username">{user.firstName}</span>
         </h1>
         <p className="dashboard__subtitle">
           Félicitations ! Vous avez explosé vos objectifs hier 👏
@@ -41,7 +38,7 @@ export default function Dashboard() {
               className="dashboard__card
             dashboard__card--radialBar"
             >
-              <ScoreChart />
+              <ScoreChart value={user.score} />
             </div>
           </div>
         </div>
