@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 
 export default function NutritionCard({ icon, value, unit, label }) {
   return (
-    <div className="nutrition-card">
+    <div className="dashboard__card nutrition-card">
       <div
         className={`nutrition-card__icon nutrition-card__icon--${label.toLowerCase()}`}
       >

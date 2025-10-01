@@ -1,5 +1,7 @@
+@use '../../styles/abstracts/colors';
+
 .header {
-  background-color: $background-black;
+  background-color: colors.$background-black;
   height: 91px;
   display: flex;
   align-items: center;
@@ -14,7 +16,7 @@
     width: 100%;
 
     a {
-      color: $background-white;
+      color: colors.$background-white;
       text-decoration: none;
       font-size: 20px;
     }

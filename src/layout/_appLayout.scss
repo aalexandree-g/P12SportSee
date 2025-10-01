@@ -1,6 +1,7 @@
+@use '../styles/abstracts/colors';
+
 .app {
-  min-height: 100vh;
-  background: $background-white;
+  background: colors.$background-white;
 
   &__body {
     display: grid;

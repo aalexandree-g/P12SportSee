@@ -1,5 +1,6 @@
 import { normalizeScore } from './normalizers/normalizeScore.js'
 import { normalizePerformance } from './normalizers/normalizePerformance.js'
+import { normalizeAverageSessions } from './normalizers/normalizeAverageSessions.js'
 
 const BASE_URL = 'http://localhost:3000/user'
 
@@ -26,4 +27,10 @@ export async function getUser(id) {
 export async function getUserPerformance(id) {
   const { data } = await apiFetch(`/${id}/performance`)
   return normalizePerformance(data)
+}
+
+// add day labels (L, M, M, J, V, S, D)
+export async function getUserAverageSessions(id) {
+  const { data } = await apiFetch(`/${id}/average-sessions`)
+  return normalizeAverageSessions(data)
 }

@@ -1,20 +1,19 @@
+@use '../../styles/abstracts/colors';
+
 .app__dashboard {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 68px 30px;
-  background-color: $background-white;
+  width: 100%;
+  background-color: colors.$background-white;
+  margin: 100px 0px;
 }
 
 .dashboard {
-  display: grid;
-  grid-template-rows: 167fr 612fr;
-  height: 100%;
-  width: 100%;
-  aspect-ratio: 1126 / 779;
-  max-height: 585px;
-  max-width: 847px;
-  background-color: $background-white;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background-color: colors.$background-white;
 
   &__title {
     font-size: 48px;
@@ -23,7 +22,7 @@
   }
 
   &__username {
-    color: $primary-light;
+    color: colors.$primary-light;
   }
 
   &__subtitle {
@@ -31,67 +30,49 @@
   }
 
   &__content {
-    max-height: 612px;
+    display: flex;
+    gap: 30px;
     width: 100%;
-    min-height: 0;
-    background-color: $background-white;
+    background-color: colors.$background-white;
 
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    gap: 29px;
-  }
-
-  &__performances {
-    display: grid;
-    grid-template-rows: 320fr 263fr;
-    gap: 29px;
-  }
-
-  &__chart {
-    border-radius: 6px;
-    overflow: hidden;
-    background-color: $background-grey;
+    @media (max-width: 1280px) {
+      flex-direction: column;
+    }
   }
 
   &__charts {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 29px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  &__mini-charts {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
   }
 
   &__card {
     border-radius: 5px;
     overflow: hidden;
-    background-color: $background-grey;
 
-    &--line,
-    &--radar,
-    &--radialBar {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    &--line {
-      background-color: $primary-light;
-    }
-
-    &--radar {
-      background-color: $neutral-800;
-    }
-
-    &--radialBar {
-      background-color: $background-grey;
+    &--activity {
+      width: 835px;
+      height: 320px;
+      background-color: colors.$background-grey;
     }
   }
 
   &__nutrition {
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    gap: 29px;
-  }
-}
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 835px;
 
-.test {
-  background-color: $background-black;
+    @media (max-width: 1280px) {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
 }

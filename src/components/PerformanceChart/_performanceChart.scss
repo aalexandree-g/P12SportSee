@@ -1,8 +1,21 @@
-.performance-radar {
-  background: #282d30;
+@use '../../styles/abstracts/colors';
+
+.performance-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 258px;
+  height: 263px;
+  background-color: colors.$neutral-800;
 
   &__tick {
-    font-size: 9px;
-    font-weight: 400;
+    font-size: 12px;
+  }
+
+  &__tooltip {
+    padding: 4px 6px;
+    font-size: 8px;
+    color: colors.$background-black;
+    background: colors.$background-white;
   }
 }

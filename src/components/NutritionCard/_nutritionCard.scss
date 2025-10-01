@@ -1,10 +1,19 @@
+@use '../../styles/abstracts/colors';
+
 .nutrition-card {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 15px;
-  padding-left: 20px;
-  height: 100%;
+  width: 258px;
+  height: 124px;
+  background: colors.$background-grey;
+
+  @media (max-width: 1280px) {
+    flex-direction: column;
+    width: 193px;
+    height: 100%;
+    padding-bottom: 32px;
+  }
 
   &__icon {
     display: flex;
@@ -12,6 +21,7 @@
     align-items: center;
     height: 60px;
     width: 60px;
+    margin: 32px;
     border-radius: 6px;
 
     img {
@@ -42,16 +52,16 @@
   }
 
   &__value {
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 20px;
+    font-weight: 700;
     margin: 0;
-    color: $neutral-800;
+    color: colors.$neutral-800;
   }
 
   &__label {
-    font-size: 12px;
-    font-size: 400;
+    font-size: 14px;
+    font-size: 500;
     margin: 0;
-    color: $neutral-600;
+    color: colors.$neutral-600;
   }
 }

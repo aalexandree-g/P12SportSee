@@ -1,29 +1,32 @@
 import PropTypes from 'prop-types'
-import { RadarChart, PolarGrid, PolarAngleAxis, Radar } from 'recharts'
-
-export default function PerformanceRadar({ data }) {
+import PerformanceTooltip from './PerformanceTooltip'
+import {
+  ResponsiveContainer,
+  RadarChart,
+  PolarGrid,
+  PolarAngleAxis,
+  Radar,
+  Tooltip,
+} from 'recharts'
+export default function PerformanceChart({ data }) {
   return (
-    <div className="performance-radar">
-      <RadarChart
-        cx="50%"
-        cy="50%"
-        outerRadius="72%"
-        width={180}
-        height={180}
-        data={data}
-      >
-        <PolarGrid radialLines={false} />
-        <PolarAngleAxis
-          dataKey="kind"
-          tick={{ fill: '#ffffff', className: 'performance-radar__tick' }}
-        />
-        <Radar dataKey="value" fill="#FF0101" fillOpacity={0.7} />
-      </RadarChart>
+    <div className="dashboard__card performance-card">
+      <ResponsiveContainer width="100%" height="100%">
+        <RadarChart cx="50%" cy="50%" outerRadius="70%" data={data}>
+          <PolarGrid radialLines={false} />
+          <PolarAngleAxis
+            dataKey="kind"
+            tick={{ fill: '#ffffff', className: 'performance-card__tick' }}
+          />
+          <Radar dataKey="value" fill="#FF0101" fillOpacity={0.7} />
+          <Tooltip content={<PerformanceTooltip />} cursor={false} />
+        </RadarChart>
+      </ResponsiveContainer>
     </div>
   )
 }
 
-PerformanceRadar.propTypes = {
+PerformanceChart.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       kind: PropTypes.string.isRequired,

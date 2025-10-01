@@ -1,18 +1,16 @@
-// variables
-@import './abstracts/colors';
-
 // components
-@import '../components/NutritionCard/nutritionCard';
-@import '../components/ScoreChart/scoreChart';
-@import '../components/PerformanceChart/performanceChart';
+@use '../components/NutritionCard/nutritionCard';
+@use '../components/ScoreChart/scoreChart';
+@use '../components/PerformanceChart/performanceChart';
+@use '../components/SessionsChart/sessionsCard';
 
 // layout
-@import '../layout/appLayout';
-@import '../components/Header/header';
-@import '../components/Sidebar/sidebar';
+@use '../layout/appLayout';
+@use '../components/Header/header';
+@use '../components/Sidebar/sidebar';
 
 // pages
-@import '../pages/Dashboard/dashboard';
+@use '../pages/Dashboard/dashboard';
 
 body {
   font-family: Roboto, sans-serif;
