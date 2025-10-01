@@ -32,21 +32,27 @@
     background-color: colors.$primary-dark;
   }
 
-  .recharts-legend-wrapper {
-    top: 10px !important;
-    right: 20px !important;
-  }
+  .recharts {
+    &-legend-wrapper {
+      top: 25px !important;
+      right: 0px !important;
+    }
 
-  .recharts-tooltip-wrapper {
-    outline: none;
-  }
+    &-surface {
+      margin-right: 10px !important;
+    }
 
-  /* .activity-tooltip {
-    background: #e60000;
-    color: #fff;
-    font-size: 10px;
-    padding: 5px 8px;
-    text-align: center;
-    border: none;
-  } */
+    &-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin: 0 !important;
+      padding-right: 30px;
+    }
+
+    &-legend-item-text {
+      color: colors.$neutral-600 !important;
+      font-size: 14px;
+    }
+  }
 }

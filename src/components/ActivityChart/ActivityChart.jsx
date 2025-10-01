@@ -16,66 +16,66 @@ export default function ActivityChart({ data }) {
     <div className="dashboard__card activity-card">
       <h2 className="activity-card__title">Activité quotidienne</h2>
       <div className="activity-card__chart">
-        <ResponsiveContainer width="100%" height={300}>
+        <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={data}
-            margin={{ top: 20, right: 20, left: 20, bottom: 20 }}
+            margin={{ top: 80, right: 0, left: 0, bottom: 30 }}
             barGap={8}
           >
             {/* grid and graduation */}
             <CartesianGrid
               stroke="#dedede"
-              strokeDasharray="2 2"
+              strokeDasharray="2"
               vertical={false}
             />
 
-            {/* axe X (jours) */}
+            {/* X axis (days) */}
             <XAxis
               dataKey="day"
               tickLine={false}
               axisLine={false}
               tick={{ fill: '#9b9eac', fontSize: 14 }}
+              dy={15}
             />
 
-            {/* axe Y à droite (kg) */}
+            {/* Y axis (kg) */}
             <YAxis
               yAxisId="kg"
               dataKey="kilogram"
               orientation="right"
               axisLine={false}
               tickLine={false}
+              tick={{ fill: '#9b9eac', fontSize: 14, fontFamily: 'Roboto' }}
+              domain={['dataMin - 2', 'dataMax + 1']}
+              tickCount={3}
             />
 
-            {/* axe Y à gauche (calories) masqué */}
-            <YAxis yAxisId="cal" dataKey="calories" hide />
-
-            {/* tooltip custom */}
+            {/* custom tooltip */}
             <Tooltip content={<ActivityTooltip />} />
 
-            {/* légende */}
             <Legend
               verticalAlign="top"
               align="right"
               iconType="circle"
-              wrapperStyle={{ top: 0 }}
+              iconSize={8}
             />
 
-            {/* barres */}
+            {/* bars */}
             <Bar
+              name="Poids (kg)"
               yAxisId="kg"
               dataKey="kilogram"
               fill="#282D30"
-              radius={[5, 5, 0, 0]}
+              radius={[3, 3, 0, 0]}
               barSize={7}
-              name="Poids (kg)"
             />
             <Bar
+              name="Calories brûlées (kCal)"
               yAxisId="cal"
               dataKey="calories"
               fill="#E60000"
-              radius={[5, 5, 0, 0]}
+              radius={[3, 3, 0, 0]}
               barSize={7}
-              name="Calories brûlées (kCal)"
             />
           </BarChart>
         </ResponsiveContainer>

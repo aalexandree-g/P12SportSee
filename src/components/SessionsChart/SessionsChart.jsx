@@ -47,7 +47,7 @@ export default function SessionsChart({ data }) {
               dy={10}
             />
 
-            {/* Y axis (duration) */}
+            {/* Y axis (min) */}
             <YAxis hide={true} domain={['dataMin - 15', 'dataMax + 5']} />
 
             {/* custom tooltip */}

@@ -7,7 +7,7 @@ export default function ActivityTooltip({ active, payload }) {
     return (
       <div className="activity-card__tooltip">
         <p>{payload[0].value}kg</p>
-        <p>{payload[1].value}Kcal</p>
+        <p>{payload[1].value}kCal</p>
       </div>
     )
   }
