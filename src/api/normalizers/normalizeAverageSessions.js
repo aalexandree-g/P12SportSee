@@ -1,7 +1,6 @@
-// normalizers/normalizeAverageSessions.js
 const DAY_LABELS = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
 
-// adding day label to each session
+// add day labels (L, M, M, J, V, S, D)
 export function normalizeAverageSessions(data) {
   return data.sessions.map((session) => ({
     day: session.day,

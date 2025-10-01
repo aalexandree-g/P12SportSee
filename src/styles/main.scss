@@ -1,8 +1,9 @@
 // components
-@use '../components/NutritionCard/nutritionCard';
-@use '../components/ScoreChart/scoreChart';
-@use '../components/PerformanceChart/performanceChart';
+@use '../components/ActivityChart/activityChart';
 @use '../components/SessionsChart/sessionsCard';
+@use '../components/PerformanceChart/performanceChart';
+@use '../components/ScoreChart/scoreChart';
+@use '../components/NutritionCard/nutritionCard';
 
 // layout
 @use '../layout/appLayout';

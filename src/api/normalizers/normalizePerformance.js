@@ -1,3 +1,4 @@
+// put french labels and reverse order for Recharts
 export function normalizePerformance(raw) {
   if (!raw || !raw.data || !raw.kind) return []
 

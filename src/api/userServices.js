@@ -1,6 +1,7 @@
-import { normalizeScore } from './normalizers/normalizeScore.js'
-import { normalizePerformance } from './normalizers/normalizePerformance.js'
+import { normalizeActivity } from './normalizers/normalizeActivity.js'
 import { normalizeAverageSessions } from './normalizers/normalizeAverageSessions.js'
+import { normalizePerformance } from './normalizers/normalizePerformance.js'
+import { normalizeScore } from './normalizers/normalizeScore.js'
 
 const BASE_URL = 'http://localhost:3000/user'
 
@@ -10,27 +11,22 @@ async function apiFetch(path) {
   return response.json()
 }
 
-// normalize score and todayScore into score
-export async function getUser(id) {
-  const { data } = await apiFetch(`/${id}`)
-  return {
-    id: data.id,
-    firstName: data.userInfos.firstName,
-    lastName: data.userInfos.lastName,
-    age: data.userInfos.age,
-    score: normalizeScore(data),
-    keyData: data.keyData,
-  }
+export async function getUserActivity(id) {
+  const { data } = await apiFetch(`/${id}/activity`)
+  return normalizeActivity(data)
 }
 
-// put french labels and reorder for Recharts
+export async function getUserAverageSessions(id) {
+  const { data } = await apiFetch(`/${id}/average-sessions`)
+  return normalizeAverageSessions(data)
+}
+
 export async function getUserPerformance(id) {
   const { data } = await apiFetch(`/${id}/performance`)
   return normalizePerformance(data)
 }
 
-// add day labels (L, M, M, J, V, S, D)
-export async function getUserAverageSessions(id) {
-  const { data } = await apiFetch(`/${id}/average-sessions`)
-  return normalizeAverageSessions(data)
+export async function getUser(id) {
+  const { data } = await apiFetch(`/${id}`)
+  return normalizeScore(data)
 }

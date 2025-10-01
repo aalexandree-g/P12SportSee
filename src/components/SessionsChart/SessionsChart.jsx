@@ -29,16 +29,16 @@ export default function SessionsChart({ data }) {
                 x2="100%"
                 y2="0%"
               >
-                {/* transparent on the left */}
                 <stop offset="0%" stopColor="white" stopOpacity={0.2} />
-                {/* white on the right */}
                 <stop offset="100%" stopColor="white" stopOpacity={1} />
               </linearGradient>
             </defs>
+
+            {/* X axis (days) */}
             <XAxis
               dataKey="day"
               type="number"
-              // avoid confusion about M (Mardi and Mercredi)
+              // avoid hover confusion about M (Mardi and Mercredi)
               ticks={[1, 2, 3, 4, 5, 6, 7]}
               tickFormatter={(d) => ['', 'L', 'M', 'M', 'J', 'V', 'S', 'D'][d]}
               axisLine={false}
@@ -46,11 +46,17 @@ export default function SessionsChart({ data }) {
               tick={{ fill: '#fff', fontSize: 12, opacity: 0.5 }}
               dy={10}
             />
+
+            {/* Y axis (duration) */}
             <YAxis hide={true} domain={['dataMin - 15', 'dataMax + 5']} />
+
+            {/* custom tooltip */}
             <Tooltip
               content={<SessionsTooltip />}
               cursor={<SessionsCursor />}
             />
+
+            {/* main curve */}
             <Line
               type="natural" // natural curve
               dataKey="value"

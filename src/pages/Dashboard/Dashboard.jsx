@@ -1,38 +1,53 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+
 import {
-  getUser,
-  getUserPerformance,
+  getUserActivity,
   getUserAverageSessions,
+  getUserPerformance,
+  getUser,
 } from '../../api/userServices'
+
+import ActivityChart from '../../components/ActivityChart/ActivityChart'
+import SessionsChart from '../../components/SessionsChart/SessionsChart'
+import PerformanceChart from '../../components/PerformanceChart/PerformanceChart'
+import ScoreChart from '../../components/ScoreChart/ScoreChart'
 import NutritionCard from '../../components/NutritionCard/NutritionCard'
+
 import caloriesIcon from '../../assets/calories-icon.png'
 import proteinIcon from '../../assets/protein-icon.png'
 import carbsIcon from '../../assets/carbs-icon.png'
 import fatIcon from '../../assets/fat-icon.png'
-import ScoreChart from '../../components/ScoreChart/ScoreChart'
-import PerformanceChart from '../../components/PerformanceChart/PerformanceChart'
-import SessionsChart from '../../components/SessionsChart/SessionsChart'
 
 export default function Dashboard() {
   const { id } = useParams()
-  const [user, setUser] = useState(null)
-  const [performance, setPerformance] = useState(null)
+  const [activity, setActivity] = useState(null)
   const [sessions, setSessions] = useState(null)
+  const [performance, setPerformance] = useState(null)
+  const [user, setUser] = useState(null)
 
+  //get data for activity chart
   useEffect(() => {
-    getUser(id).then(setUser).catch(console.error)
+    getUserActivity(id).then(setActivity).catch(console.error)
   }, [id])
 
-  useEffect(() => {
-    getUserPerformance(id).then(setPerformance).catch(console.error)
-  }, [id])
-
+  // get data for sessions chart
   useEffect(() => {
     getUserAverageSessions(id).then(setSessions).catch(console.error)
   }, [id])
 
-  if (!user || !performance || !sessions) return <p>Chargement...</p>
+  // get data for performance chart
+  useEffect(() => {
+    getUserPerformance(id).then(setPerformance).catch(console.error)
+  }, [id])
+
+  // get data for score chart
+  useEffect(() => {
+    getUser(id).then(setUser).catch(console.error)
+  }, [id])
+
+  if (!activity || !sessions || !performance || !user)
+    return <p>Chargement...</p>
 
   return (
     <div className="dashboard">
@@ -46,7 +61,9 @@ export default function Dashboard() {
       </div>
       <div className="dashboard__content">
         <div className="dashboard__charts">
-          <div className="dashboard__card dashboard__card--activity"></div>
+          <div className="dashboard__card dashboard__card--activity">
+            <ActivityChart data={activity} />
+          </div>
           <div className="dashboard__mini-charts">
             <SessionsChart data={sessions} />
             <PerformanceChart data={performance} />
