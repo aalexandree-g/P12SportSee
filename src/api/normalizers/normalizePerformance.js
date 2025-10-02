@@ -1,8 +1,11 @@
-// put french labels and reverse order for Recharts
+/**
+ * Met en français les labels et réordonne les données pour Recharts.
+ * @param {{kind: Object<string,string>, data: {value:number, kind:number}[]}} data - Données brutes de l’API
+ * @returns {PerformancePoint[]} Tableau de performances normalisées
+ */
 export function normalizePerformance(raw) {
   if (!raw || !raw.data || !raw.kind) return []
 
-  // french version of each kind
   const kindMap = {
     1: 'Cardio',
     2: 'Énergie',

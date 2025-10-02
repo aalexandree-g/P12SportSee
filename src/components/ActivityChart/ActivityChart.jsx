@@ -28,7 +28,6 @@ export default function ActivityChart({ data }) {
               strokeDasharray="2"
               vertical={false}
             />
-
             {/* X axis (days) */}
             <XAxis
               dataKey="day"
@@ -37,7 +36,6 @@ export default function ActivityChart({ data }) {
               tick={{ fill: '#9b9eac', fontSize: 14 }}
               dy={15}
             />
-
             {/* Y axis (kg) */}
             <YAxis
               yAxisId="kg"
@@ -49,17 +47,14 @@ export default function ActivityChart({ data }) {
               domain={['dataMin - 2', 'dataMax + 1']}
               tickCount={3}
             />
-
             {/* custom tooltip */}
             <Tooltip content={<ActivityTooltip />} />
-
             <Legend
               verticalAlign="top"
               align="right"
               iconType="circle"
               iconSize={8}
             />
-
             {/* bars */}
             <Bar
               name="Poids (kg)"

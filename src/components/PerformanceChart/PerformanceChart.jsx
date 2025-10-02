@@ -13,12 +13,16 @@ export default function PerformanceChart({ data }) {
     <div className="dashboard__card performance-card">
       <ResponsiveContainer width="100%" height="100%">
         <RadarChart cx="50%" cy="50%" outerRadius="70%" data={data}>
+          {/* polar grid without radial lines */}
           <PolarGrid radialLines={false} />
+          {/* categories axis */}
           <PolarAngleAxis
             dataKey="kind"
             tick={{ fill: '#ffffff', className: 'performance-card__tick' }}
           />
+          {/* value radar */}
           <Radar dataKey="value" fill="#FF0101" fillOpacity={0.7} />
+          {/* custom tooltip */}
           <Tooltip content={<PerformanceTooltip />} cursor={false} />
         </RadarChart>
       </ResponsiveContainer>

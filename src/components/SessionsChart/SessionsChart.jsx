@@ -33,7 +33,6 @@ export default function SessionsChart({ data }) {
                 <stop offset="100%" stopColor="white" stopOpacity={1} />
               </linearGradient>
             </defs>
-
             {/* X axis (days) */}
             <XAxis
               dataKey="day"
@@ -46,16 +45,13 @@ export default function SessionsChart({ data }) {
               tick={{ fill: '#fff', fontSize: 12, opacity: 0.5 }}
               dy={10}
             />
-
             {/* Y axis (min) */}
             <YAxis hide={true} domain={['dataMin - 15', 'dataMax + 5']} />
-
             {/* custom tooltip */}
             <Tooltip
               content={<SessionsTooltip />}
               cursor={<SessionsCursor />}
             />
-
             {/* main curve */}
             <Line
               type="natural" // natural curve

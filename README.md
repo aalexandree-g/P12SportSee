@@ -1,31 +1,61 @@
-# 💪 SportSee - Application de coaching sportif
+# SportSee
 
-SportSee est une application de coaching sportif permettant aux utilisateurs de suivre leurs performances quotidiennes et leurs progrès à travers des graphiques interactifs et personnalisés. Ici, on réalise la nouvelle page profil de l'application.
-Ce projet est réalisé dans le cadre de la formation OpenClassrooms - Développeur d'application Javascript React.
+SportSee est une application de tableau de bord sportif permettant de suivre l’activité d’un utilisateur.
+Ce projet, dans le cadre de la formation OpenClassrooms "Développeur d'application JavaScript React", a pour but d’apprendre à construire une application front-end moderne en React, d'intégrer une API externe et de représenter les données via des graphiques interactifs (**Recharts**).
 
-# SportSee – Tableau de bord (Front-End)
+## 📦 Installation
 
-SportSee est une application de coaching sportif permettant aux utilisateurs de suivre leurs performances quotidiennes et leurs progrès à travers des graphiques interactifs et personnalisés grâce à **Recharts**.
-Ce projet est réalisé dans le cadre de la formation OpenClassrooms - Développeur d'application Javascript React.
+### 1. Backend (API)
 
-## 🚀 Démarrage rapide
+Le backend est fourni par OpenClassrooms et doit être installé séparément.  
+Suivre les instructions sur le repo officiel : [SportSee API](https://github.com/OpenClassrooms-Student-Center/SportSee).
 
-### Prérequis
+Par défaut, l’API tourne sur **http://localhost:3000**.
 
-- Node.js ≥ 18
-- npm ou yarn
+---
 
-### Installation
+### 2. Frontend (ce projet)
 
-# cloner
+#### Cloner ce repository :
 
-git clone <url-du-repo>
-cd sportsee
+```bash
+git clone https://github.com/aalexandree-g/P12SportSee.git
+cd P12SportSee
+```
 
-# installer
+#### Installer les dépendances :
 
+```bash
 npm install
+```
 
-# ou
+#### Lancer le projet en mode développement :
 
-yarn
+```bash
+npm run dev
+```
+
+Le site est disponible sur **http://localhost:5173**.
+
+## 📖 Utilisation
+
+### 1. Choisir un utilisateur
+
+Accéder directement via l’URL, par exemple :
+
+- http://localhost:5173/user/12
+- http://localhost:5173/user/18
+
+---
+
+### 2. Fonctionnalités principales
+
+Explorer les graphiques pour visualiser son activité et ses performances.
+
+- 📊 BarChart : activité quotidienne
+
+- 📈 LineChart : durée moyenne des sessions
+
+- 🕸️ RadarChart : performance par catégorie
+
+- 🌀 RadialBarChart : avancée de l'objectif

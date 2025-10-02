@@ -15,6 +15,7 @@ export default function ScoreChart({ value }) {
             startAngle={90}
             endAngle={90 + (360 * value) / 100}
           >
+            {/* inner white circle */}
             <circle
               cx="50%"
               cy="50%"
