@@ -8,6 +8,9 @@ import {
   getUser,
 } from '../../api/userServices'
 
+import Error from '../Error/Error'
+import { faSpinner, faUserXmark } from '@fortawesome/free-solid-svg-icons'
+
 import ActivityChart from '../../components/ActivityChart/ActivityChart'
 import SessionsChart from '../../components/SessionsChart/SessionsChart'
 import PerformanceChart from '../../components/PerformanceChart/PerformanceChart'
@@ -21,33 +24,39 @@ import fatIcon from '../../assets/fat-icon.png'
 
 export default function Dashboard() {
   const { id } = useParams()
+  const [loading, setLoading] = useState(true)
   const [activity, setActivity] = useState(null)
   const [sessions, setSessions] = useState(null)
   const [performance, setPerformance] = useState(null)
   const [user, setUser] = useState(null)
 
-  //get data for activity chart
+  //get data for charts
   useEffect(() => {
-    getUserActivity(id).then(setActivity).catch(console.error)
+    Promise.all([
+      getUserActivity(id),
+      getUserAverageSessions(id),
+      getUserPerformance(id),
+      getUser(id),
+    ])
+      .then(([act, sess, perf, usr]) => {
+        setActivity(act)
+        setSessions(sess)
+        setPerformance(perf)
+        setUser(usr)
+        setLoading(false)
+      })
+      .catch((err) => {
+        console.error(err)
+        setLoading(false)
+      })
   }, [id])
 
-  // get data for sessions chart
-  useEffect(() => {
-    getUserAverageSessions(id).then(setSessions).catch(console.error)
-  }, [id])
+  // while data is loading
+  if (loading) return <Error icon={faSpinner} message="Chargement..." />
 
-  // get data for performance chart
-  useEffect(() => {
-    getUserPerformance(id).then(setPerformance).catch(console.error)
-  }, [id])
-
-  // get data for score chart
-  useEffect(() => {
-    getUser(id).then(setUser).catch(console.error)
-  }, [id])
-
-  if (!activity || !sessions || !performance || !user)
-    return <p>Chargement...</p>
+  // wrong id
+  if (!user)
+    return <Error icon={faUserXmark} message="L'utilisateur n'existe pas..." />
 
   return (
     <div className="dashboard">

@@ -1,0 +1,13 @@
+@use '../../styles/abstracts/colors';
+
+.error-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-icon {
+  font-size: 40px;
+  color: colors.$primary-light;
+}

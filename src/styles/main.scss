@@ -12,6 +12,7 @@
 
 // pages
 @use '../pages/Dashboard/dashboard';
+@use '../pages/Error/error';
 
 body {
   font-family: Roboto, sans-serif;
