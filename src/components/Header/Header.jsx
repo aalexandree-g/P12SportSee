@@ -6,10 +6,10 @@ export default function Header() {
     <header className="header">
       <nav className="header__nav">
         <img src={logo} alt="SportSee logo" className="header__logo" />
-        <NavLink to="/user/12">Accueil</NavLink>
-        <NavLink to="/error">Profil</NavLink>
-        <NavLink to="/error">Réglages</NavLink>
-        <NavLink to="/error">Communauté</NavLink>
+        <NavLink to="/home">Accueil</NavLink>
+        <NavLink to="/">Profil</NavLink>
+        <NavLink to="/settings">Réglages</NavLink>
+        <NavLink to="/community">Communauté</NavLink>
       </nav>
     </header>
   )
